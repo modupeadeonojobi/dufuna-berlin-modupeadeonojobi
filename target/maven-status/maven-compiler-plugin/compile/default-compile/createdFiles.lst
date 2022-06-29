@@ -1,1 +1,5 @@
 com\dufuna\berlin\imodupsy\address\AddressApp.class
+com\dufuna\berlin\imodupsy\lekki\MockLekkiPropertyApp.class
+com\dufuna\berlin\imodupsy\lekki\service\LekkiPropertyService.class
+com\dufuna\berlin\imodupsy\lekki\model\LekkiProperty.class
+com\dufuna\berlin\imodupsy\lekki\service\MockLekkiPropertyService.class
