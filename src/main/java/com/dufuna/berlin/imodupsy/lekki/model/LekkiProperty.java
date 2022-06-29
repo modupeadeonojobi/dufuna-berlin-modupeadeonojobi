@@ -36,6 +36,12 @@ public class LekkiProperty {
     public LekkiProperty() {
     }
 
+    public LekkiProperty(Long propertyId, String propertyAddress, String propertyType) {
+        this.propertyId = propertyId;
+        this.propertyAddress = propertyAddress;
+        PropertyType = propertyType;
+    }
+
     public Long getPropertyId() {
         return propertyId;
     }

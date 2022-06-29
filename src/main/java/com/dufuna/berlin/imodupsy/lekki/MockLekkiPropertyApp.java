@@ -1,9 +1,8 @@
 package com.dufuna.berlin.imodupsy.lekki;
 
 import com.dufuna.berlin.imodupsy.lekki.model.LekkiProperty;
+import com.dufuna.berlin.imodupsy.lekki.service.LekkiPropertyService;
 import com.dufuna.berlin.imodupsy.lekki.service.MockLekkiPropertyService;
-
-import java.time.LocalDate;
 
 /**
  * @author iModupsy
@@ -12,36 +11,21 @@ import java.time.LocalDate;
 
 
 public class MockLekkiPropertyApp {
-    public static MockLekkiPropertyService mockLekkiPropertyService = new MockLekkiPropertyService();
 
     public static void main(String[] args) {
 
-        saveLekkiProperty();
-        getLekkiProperty();
+        LekkiPropertyService service = new MockLekkiPropertyService();
+        String[] propertyType = { "Duplex", "Flat", "Bungalow", "Semi-detached"};
+        String[] propertyAddress = { "John Paul avenue", "Maria close", "Pure haven way", "Dan Close"};
+
+        for (int i = 0; i < propertyAddress.length; i++) {
+            LekkiProperty property = new LekkiProperty((long) i, propertyAddress[i], propertyType[i]);
+            service.saveProperty(property);
+            System.out.println(service.getProperty((long) i));
+        }
+        System.out.println(service.getProperties());
     }
 
-    public static LekkiProperty createLekkiProperty() {
-        LekkiProperty lekkiProperty = new LekkiProperty();
-        lekkiProperty.setPropertyId(1L);
-        lekkiProperty.setPropertyAddress("Plot 234 Oscar way");
-        lekkiProperty.setPropertyType("House");
-        lekkiProperty.setNumberOfBedrooms(4L);
-        lekkiProperty.setNumberOfSittingRooms(2L);
-        lekkiProperty.setNumberOfKitchens(2L);
-        lekkiProperty.setNumberOfBathrooms(8L);
-        lekkiProperty.setNumberOfToilets(8L);
-        lekkiProperty.setPropertyOwner("Jane Doe");
-        lekkiProperty.setDescription("Red Duplex");
-        lekkiProperty.setValidFrom(LocalDate.of(2022, 6, 26));
-        lekkiProperty.setValidTo(LocalDate.of(2024, 6, 26));
-        return lekkiProperty;
-    }
 
-    public static void saveLekkiProperty() {
-        mockLekkiPropertyService.saveProperty(createLekkiProperty());
-    }
 
-    public static void getLekkiProperty() {
-        mockLekkiPropertyService.getProperty();
-    }
 }
