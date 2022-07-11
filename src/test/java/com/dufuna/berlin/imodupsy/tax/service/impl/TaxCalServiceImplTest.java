@@ -2,6 +2,8 @@ package com.dufuna.berlin.imodupsy.tax.service.impl;
 
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -23,35 +25,35 @@ class TaxCalServiceImplTest {
 
     @Test
     void incomeIs50000_ShouldBeEqualToExpectedOutcome() {
-        double expectedOutcome = 9427.5;
+        BigDecimal expectedOutcome = new BigDecimal(9427.5);
         assertEquals(expectedOutcome, service.calculateTax(50000));
 
     }
 
     @Test
     void incomeIs18200_ShouldBeEqualToExpectedOutcome() {
-        double expectedOutcome = 3458.0;
+        BigDecimal expectedOutcome = new BigDecimal(3458.0);
         assertEquals(expectedOutcome, service.calculateTax(18200));
 
     }
 
     @Test
     void incomeIs37000_ShouldBeEqualToExpectedOutcome() {
-        double expectedOutcome = 7097.5;
+        BigDecimal expectedOutcome = new BigDecimal(7097.5);
         assertEquals(expectedOutcome, service.calculateTax(37000));
 
     }
 
     @Test
     void incomeIs90000_ShouldBeEqualToExpectedOutcome() {
-        double expectedOutcome = 24227.5;
+        BigDecimal expectedOutcome = new BigDecimal(24227.5);
         assertEquals(expectedOutcome, service.calculateTax(90000));
 
     }
 
     @Test
     void incomeIs180000_ShouldBeEqualToExpectedOutcome() {
-        double expectedOutcome = 55105.5;
+        BigDecimal expectedOutcome = new BigDecimal(55105.5);
         assertEquals(expectedOutcome, service.calculateTax(180000));
 
     }

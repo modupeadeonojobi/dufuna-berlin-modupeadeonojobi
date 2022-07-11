@@ -5,6 +5,8 @@ import com.dufuna.berlin.imodupsy.tax.service.TaxCalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
 /**
  * @author iModupsy
  * @created 11/07/2022
@@ -14,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class TaxCalServiceImpl implements TaxCalService {
 
     @Override
-    public double calculateTax(double income) {
+    public BigDecimal calculateTax(double income) {
         TaxBracket bracket = new TaxBracket();
         double taxPayable = 0.0;
 
@@ -29,6 +31,6 @@ public class TaxCalServiceImpl implements TaxCalService {
         } else if (income <= bracket.getTaxBracket4()) {
             taxPayable = 14605.50 + bracket.getRate4() * (income - bracket.getTaxBracket3());
         }
-        return taxPayable;
+        return new BigDecimal(taxPayable);
     }
 }
