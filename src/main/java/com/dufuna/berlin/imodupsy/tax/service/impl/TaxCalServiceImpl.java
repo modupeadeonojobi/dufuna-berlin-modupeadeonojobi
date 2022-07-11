@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 
 /**
  * @author iModupsy
@@ -31,6 +33,6 @@ public class TaxCalServiceImpl implements TaxCalService {
         } else if (income <= bracket.getTaxBracket4()) {
             taxPayable = 14605.50 + bracket.getRate4() * (income - bracket.getTaxBracket3());
         }
-        return new BigDecimal(taxPayable);
+        return BigDecimal.valueOf(taxPayable).round(MathContext.DECIMAL32);
     }
 }

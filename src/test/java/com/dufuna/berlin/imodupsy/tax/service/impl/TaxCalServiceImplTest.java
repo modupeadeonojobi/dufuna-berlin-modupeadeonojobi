@@ -32,8 +32,8 @@ class TaxCalServiceImplTest {
 
     @Test
     void incomeIs18200_ShouldBeEqualToExpectedOutcome() {
-        BigDecimal expectedOutcome = new BigDecimal(3458.0);
-        assertEquals(expectedOutcome, service.calculateTax(18200));
+        BigDecimal expectedOutcome = new BigDecimal(1000.5);
+        assertEquals(expectedOutcome, service.calculateTax(18240));
 
     }
 
